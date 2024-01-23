@@ -56,12 +56,7 @@ a {
     color: inherit;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 .header {
-    @include grid-center();
 
     &__nav {
         @include grid-center();
@@ -77,11 +72,13 @@ a:hover {
     }
 
     &__section {
+        max-width: 1440px;
+        width: 100%;
+        margin: auto;
 
         &__research {
             @include flex-center();
             padding: $small-gap 0;
-
             background: $light-gray;
 
             &__icon {
@@ -106,15 +103,17 @@ a:hover {
             background: $lighter-gray;
 
             &__title {
-                padding: $small-gap;
+                padding: $default-gap;
+                font-size: 2.5rem;
             }
 
             &__text {
-                padding: $small-gap;
+                padding-bottom: $default-gap;
+                font-size: 1.2rem;
             }
 
             &__button {
-                margin: $small-gap;
+                margin-bottom: $default-gap;
                 background: $default-gradient;
                 color: $default-white;
                 padding: $small-gap;
@@ -133,8 +132,6 @@ a:hover {
 }
 
 .main {
-    @include flex-center();
-    flex-direction: column;
 
     &__steps {
         padding: $default-gap $small-gap;
@@ -142,19 +139,17 @@ a:hover {
         &__title {}
 
         &__list {
-            @include grid-center();
-            margin-top: $default-gap;
-            gap: $default-gap;
+            margin-left: 0.75rem;
 
             &__card {
+                margin-top: $default-gap;
                 position: relative;
                 display: flex;
                 align-items: center;
-                width: 65dvw;
                 border-radius: 20px;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.15);
                 background: #f6f6f6;
-                padding: $default-gap 7.5dvw;
+                padding: $default-gap $small-gap;
 
                 &__number {
                     @include grid-center();
@@ -186,8 +181,8 @@ a:hover {
     &__restaurants {
         background: $lighter-gray;
         margin-top: $default-gap;
-        margin: 0;
-        padding-top: $default-gap;
+        margin: auto;
+        padding: $default-gap 0;
         width: 100%;
         max-width: 1024px;
 
@@ -288,6 +283,8 @@ a:hover {
 .footer {
     background: $dark-gray;
     color: $default-white;
+    max-width: 1440px;
+    margin: auto;
 
     &__nav {
         padding: $small-gap;
@@ -303,7 +300,29 @@ a:hover {
                 &__link {
                     font-size: 0.8rem;
                 }
+                &__link:hover {
+                    text-decoration: underline;
+                }
             }
         }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+
+    .main__steps {
+        margin: auto;
+        max-width: 1024px;
+
+        &__list {
+            display: flex;
+            gap: $default-gap;
+
+            &__card {
+                justify-content: center;
+                width: 33%;
+            }
+        }
+
     }
 }
