@@ -21,8 +21,17 @@ $default-gradient: linear-gradient(193deg, $default-purple -11.44%, $default-pin
 
 // Gap / Margin
 
+$small-gap: 1rem;
+$default-gap: 2rem;
+
 // Mixin
 @mixin grid-center {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+@mixin grid-content-center {
     display: grid;
     place-content: center;
 }
@@ -59,22 +68,19 @@ a:hover {
         height: 4rem;
 
         &__link {
-            display: grid;
+            @include grid-center();
 
             &__logo {
-                place-self: center;
                 height: 50%;
             }
         }
     }
 
     &__section {
-        @include grid-center();
 
         &__research {
             @include flex-center();
-
-            padding: 1rem;
+            padding: $small-gap 0;
 
             background: $light-gray;
 
@@ -100,18 +106,18 @@ a:hover {
             background: $lighter-gray;
 
             &__title {
-                padding: 1rem;
+                padding: $small-gap;
             }
 
             &__text {
-                padding: 1rem;
+                padding: $small-gap;
             }
 
             &__button {
-                margin: 1rem;
+                margin: $small-gap;
                 background: $default-gradient;
                 color: $default-white;
-                padding: 1rem;
+                padding: $small-gap;
                 border-radius: 50px;
                 border: none;
                 cursor: pointer;
@@ -127,16 +133,18 @@ a:hover {
 }
 
 .main {
-    padding: 3rem 1rem;
+    @include flex-center();
+    flex-direction: column;
 
     &__steps {
+        padding: $default-gap $small-gap;
 
         &__title {}
 
         &__list {
             @include grid-center();
-            margin-top: 2rem;
-            gap: 2rem;
+            margin-top: $default-gap;
+            gap: $default-gap;
 
             &__card {
                 position: relative;
@@ -146,7 +154,7 @@ a:hover {
                 border-radius: 20px;
                 box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.15);
                 background: #f6f6f6;
-                padding: 2rem 7.5dvw;
+                padding: $default-gap 7.5dvw;
 
                 &__number {
                     @include grid-center();
@@ -174,6 +182,107 @@ a:hover {
             }
         }
     }
+
+    &__restaurants {
+        background: $lighter-gray;
+        margin-top: $default-gap;
+        margin: 0;
+        padding-top: $default-gap;
+        width: 100%;
+        max-width: 1024px;
+
+        &__title {
+            padding-left: $small-gap;
+        }
+
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+            row-gap: $default-gap;
+            column-gap: 5rem;
+            padding: $small-gap;
+
+            &__card {
+                height: 16rem;
+                background-color: $default-white;
+                border-radius: 1rem;
+
+                &__img-container {
+                    position: relative;
+                    height: 70%;
+
+                    &>img {
+                        border-radius: 1rem 1rem 0 0;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    &>p {
+                        position: absolute;
+                        top: 1rem;
+                        right: 1rem;
+                        padding: 0.5rem;
+                        font-size: 0.8rem;
+                        font-weight: 700;
+                        color: $default-green;
+                        background-color: $light-green;
+                    }
+                }
+
+                &__details {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    height: 30%;
+                    padding: 0 $small-gap;
+
+
+                    &__text {
+
+                        &>h3 {}
+
+                        &>h4 {
+                            font-weight: normal;
+                        }
+                    }
+
+                    &__button {
+
+                        &>input {
+                            display: none;
+                        }
+
+                        &>label {
+                            cursor: pointer;
+                            font-size: 1.5rem;
+
+                            & .fa-solid {
+                                display: none;
+                            }
+                        }
+
+                        &>input:checked+.heart-label {
+                            background: $default-gradient;
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                        }
+
+                        // Hide Empty Heart when Added to favorite
+                        &>input:checked+.heart-label .fa-regular {
+                            display: none;
+                        }
+
+                        // Shows Heart Full When Added to favorite
+                        &>input:checked+.heart-label .fa-solid {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .footer {
@@ -181,7 +290,7 @@ a:hover {
     color: $default-white;
 
     &__nav {
-        padding: 1rem;
+        padding: $small-gap;
 
         &__link {
             &__logo {
