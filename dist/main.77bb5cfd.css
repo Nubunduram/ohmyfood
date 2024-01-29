@@ -10,6 +10,50 @@ a {
   color: inherit;
 }
 
+@keyframes fav {
+  50% {
+    font-size: 2.5rem;
+  }
+  100% {
+    text-shadow: rgba(146, 86, 220, 0.3764705882) 0 -50px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .main__steps {
+    margin: auto;
+    max-width: 1024px;
+  }
+  .main__steps__list {
+    display: flex;
+    gap: 2rem;
+  }
+  .main__steps__list__card {
+    justify-content: center;
+    width: 33%;
+  }
+  .footer__nav {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .footer__nav__list {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 600px;
+  }
+  .footer__nav__list__item {
+    margin-right: 1rem;
+  }
+  .footer__nav__list__item:nth-child(2) {
+    margin-right: 2rem;
+  }
+  .footer__nav__list__item:last-child {
+    margin-right: 2rem;
+  }
+  .footer__nav__link {
+    padding: 1rem;
+  }
+}
 .header__nav {
   display: grid;
   place-content: center;
@@ -52,6 +96,7 @@ a {
 .header__section__slogan {
   text-align: center;
   background: #f6f6f6;
+  padding-bottom: 4rem;
 }
 .header__section__slogan__title {
   padding: 2rem;
@@ -133,6 +178,7 @@ a {
   height: 16rem;
   background-color: #fff;
   border-radius: 1rem;
+  transition: ease 0.5s;
 }
 .main__restaurants__grid__card__img-container {
   position: relative;
@@ -179,12 +225,16 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: fav 0.5s;
 }
 .main__restaurants__grid__card__details__button > input:checked + .heart-label .fa-regular {
   display: none;
 }
 .main__restaurants__grid__card__details__button > input:checked + .heart-label .fa-solid {
   display: inline;
+}
+.main__restaurants__grid__card:hover {
+  scale: 103%;
 }
 
 .footer {
@@ -197,28 +247,15 @@ a {
   padding: 1rem;
 }
 .footer__nav__link__logo {
+  padding: 1rem 0;
   height: 1rem;
 }
 .footer__nav__list__item__link {
-  font-size: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 .footer__nav__list__item__link:hover {
   text-decoration: underline;
-}
-
-@media only screen and (min-width: 800px) {
-  .main__steps {
-    margin: auto;
-    max-width: 1024px;
-  }
-  .main__steps__list {
-    display: flex;
-    gap: 2rem;
-  }
-  .main__steps__list__card {
-    justify-content: center;
-    width: 33%;
-  }
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

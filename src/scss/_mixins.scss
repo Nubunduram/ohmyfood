@@ -1,0 +1,17 @@
+// Mixin
+@mixin grid-center {
+    display: grid;
+    place-content: center;
+    place-items: center;
+}
+
+@mixin grid-content-center {
+    display: grid;
+    place-content: center;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,60 +1,10 @@
-// VAR
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./animations";
+@import "./mediaqueries";
 
-// Colors
-$default-white: #fff;
 
-$lighter-gray: #f6f6f6;
-$light-gray: #eaeaea;
-$default-gray: #7e7e7e;
-$dark-gray: #353535;
-
-$default-black: #000;
-
-$default-pink: #FF79DA;
-
-$default-purple: #9356DC;
-
-$light-green: #99E2D0;
-$default-green: #008766;
-
-$default-gradient: linear-gradient(193deg, $default-purple -11.44%, $default-pink 123.93%);
-
-// Gap / Margin
-
-$small-gap: 1rem;
-$default-gap: 2rem;
-
-// Mixin
-@mixin grid-center {
-    display: grid;
-    place-content: center;
-    place-items: center;
-}
-
-@mixin grid-content-center {
-    display: grid;
-    place-content: center;
-}
-
-@mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-// Reset
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: Roboto, sans-serif;
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
 .header {
 
@@ -101,6 +51,7 @@ a {
         &__slogan {
             text-align: center;
             background: $lighter-gray;
+            padding-bottom: $default-gap*2;
 
             &__title {
                 padding: $default-gap;
@@ -201,6 +152,7 @@ a {
                 height: 16rem;
                 background-color: $default-white;
                 border-radius: 1rem;
+                transition: ease 0.5s;
 
                 &__img-container {
                     position: relative;
@@ -254,14 +206,17 @@ a {
 
                             & .fa-solid {
                                 display: none;
+
                             }
                         }
 
+                        // allow to put the gradient on the SVG background
                         &>input:checked+.heart-label {
                             background: $default-gradient;
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                             background-clip: text;
+                            animation: fav 0.5s;
                         }
 
                         // Hide Empty Heart when Added to favorite
@@ -275,6 +230,10 @@ a {
                         }
                     }
                 }
+            }
+
+            &__card:hover {
+                scale: 103%;
             }
         }
     }
@@ -291,6 +250,7 @@ a {
 
         &__link {
             &__logo {
+                padding: $small-gap 0;
                 height: 1rem;
             }
         }
@@ -298,8 +258,10 @@ a {
         &__list {
             &__item {
                 &__link {
-                    font-size: 0.8rem;
+                    font-size: 1rem;
+                    line-height: 1.5;
                 }
+
                 &__link:hover {
                     text-decoration: underline;
                 }
@@ -308,21 +270,5 @@ a {
     }
 }
 
-@media only screen and (min-width: 800px) {
 
-    .main__steps {
-        margin: auto;
-        max-width: 1024px;
 
-        &__list {
-            display: flex;
-            gap: $default-gap;
-
-            &__card {
-                justify-content: center;
-                width: 33%;
-            }
-        }
-
-    }
-}

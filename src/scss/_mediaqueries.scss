@@ -1,0 +1,54 @@
+// Media Queries
+@media only screen and (min-width: 800px) {
+
+
+    // Change The direction of the Steps from column to a single row after 800px
+    .main__steps {
+        margin: auto;
+        max-width: 1024px;
+
+        &__list {
+            display: flex;
+            gap: $default-gap;
+
+            &__card {
+                justify-content: center;
+                width: 33%;
+            }
+        }
+
+    }
+
+    // Change the direction of the Footer content from colum to a single row after 800px
+    .footer__nav {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        &__list {
+            display: flex;
+            justify-content: flex-end;
+            min-width: 600px;
+
+            &__item {
+                margin-right: $small-gap;
+            }
+
+            // Separate the links in the footer
+            &__item:nth-child(2) {
+                margin-right: $default-gap;
+            }
+
+            &__item:last-child {
+                margin-right: $default-gap;
+            }
+
+
+        }
+
+        &__link {
+            padding: $small-gap;
+        }
+    }
+
+}
