@@ -1,0 +1,158 @@
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./animations";
+@import "./mediaqueries";
+
+.header {
+
+    &__nav {
+        @include grid-center;
+        position: relative;
+
+        &__back {
+            @include grid-center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: $default-gap;
+            height: 30px;
+            font-size: 1.5rem;
+        }
+
+        &__link {
+            @include grid-center();
+            margin: $default-gap;
+
+            &__logo {
+                height: 30px;
+            }
+        }
+    }
+
+    &__img-container {
+        width: 100%;
+
+        &__img {
+            width: 100%;
+        }
+    }
+}
+
+.main {
+    // move the main content up on top of the picture
+    position: relative;
+    top: -25px;
+    margin: -25px auto;
+
+    display: grid;
+    max-width: 1024px;
+    background: $light-gray;
+    border-radius: 3rem 3rem 0 0;
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $default-gap;
+        height: 2rem;
+
+        h1 {
+            font-size: 1.2rem;
+        }
+
+        &__button {
+            @include like-button;
+        }
+    }
+
+    &__list {
+        display: grid;
+        gap: $small-gap;
+        margin: auto;
+        width: 90%;
+        margin-bottom: $default-gap;
+
+        h2 {
+            font-weight: lighter;
+            text-transform: uppercase;
+        }
+
+        .card {
+            display: flex;
+            justify-content: space-between;
+            background: $default-white;
+            border-radius: 1rem;
+            position: relative;
+            padding: $small-gap;
+            cursor: pointer;
+            height: 3rem;
+            width: calc(100% - $small-gap*2);
+            // To hide the animation border when it starts
+            overflow: hidden;
+
+            &__detail {
+                overflow: hidden;
+
+                &__title {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                &__text {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            &__price {
+                margin-left: auto;
+                margin-right: $small-gap;
+                align-self: flex-end;
+            }
+
+            &__svg-container {
+                @include grid-center;
+                background-color: $light-green;
+                height: calc(100% + 2*$small-gap);
+                margin-top: -$small-gap;
+                margin-right: -$small-gap;
+                // width from 0 to 4rem with animation
+                width: 0rem;
+                border-radius: 0 1rem 1rem 0;
+                transition: 0.25s;
+
+                & svg {
+                    width: 1.5rem;
+                    height: 100%;
+                }
+            }
+        }
+
+        .card:hover .card__svg-container {
+            width: 4rem;
+        }
+    }
+
+
+
+    .order-button {
+        @include button;
+        place-self: center;
+        margin-bottom: $default-gap;
+    }
+
+    .order-button:hover {
+        @include button-hover;
+    }
+
+
+}
+
+
+
+.footer {
+    @include footer;
+}
