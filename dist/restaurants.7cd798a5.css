@@ -53,6 +53,14 @@ a {
   .footer__nav__link {
     padding: 1rem;
   }
+  .header__img-container {
+    height: 380px;
+    overflow: hidden;
+  }
+}
+.header {
+  max-width: 1440px;
+  margin: auto;
 }
 .header__nav {
   display: grid;
@@ -81,6 +89,9 @@ a {
   height: 30px;
 }
 .header__img-container {
+  display: grid;
+  place-content: center;
+  place-items: center;
   width: 100%;
 }
 .header__img-container__img {
@@ -93,7 +104,7 @@ a {
   margin: -25px auto;
   display: grid;
   max-width: 1024px;
-  background: #eaeaea;
+  background: #f6f6f6;
   border-radius: 3rem 3rem 0 0;
 }
 .main__title {
@@ -102,6 +113,8 @@ a {
   align-items: center;
   padding: 2rem;
   height: 2rem;
+  margin: auto;
+  width: calc(100% - 4rem);
 }
 .main__title h1 {
   font-size: 1.2rem;
@@ -153,6 +166,7 @@ a {
   overflow: hidden;
 }
 .main__list .card__detail {
+  width: 100%;
   overflow: hidden;
 }
 .main__list .card__detail__title {
@@ -178,8 +192,7 @@ a {
   height: calc(100% + 2rem);
   margin-top: -1rem;
   margin-right: -1rem;
-  width: 0rem;
-  border-radius: 0 1rem 1rem 0;
+  width: 0;
   transition: 0.25s;
 }
 .main__list .card__svg-container svg {
@@ -203,6 +216,10 @@ a {
 .main .order-button:hover {
   opacity: 0.85;
   box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.25);
+}
+
+.main__list, .main__title {
+  max-width: 600px;
 }
 
 .footer {

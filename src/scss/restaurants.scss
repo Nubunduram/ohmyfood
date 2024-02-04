@@ -5,6 +5,8 @@
 @import "./mediaqueries";
 
 .header {
+    max-width: 1440px;
+    margin: auto;
 
     &__nav {
         @include grid-center;
@@ -31,6 +33,7 @@
     }
 
     &__img-container {
+        @include grid-center;
         width: 100%;
 
         &__img {
@@ -47,7 +50,7 @@
 
     display: grid;
     max-width: 1024px;
-    background: $light-gray;
+    background: $lighter-gray;
     border-radius: 3rem 3rem 0 0;
 
     &__title {
@@ -56,6 +59,8 @@
         align-items: center;
         padding: $default-gap;
         height: 2rem;
+        margin: auto;
+        width: calc(100% - $default-gap*2);
 
         h1 {
             font-size: 1.2rem;
@@ -92,6 +97,8 @@
             overflow: hidden;
 
             &__detail {
+                // Width 100% required to have consistency on the hover effect
+                width: 100%;
                 overflow: hidden;
 
                 &__title {
@@ -120,8 +127,7 @@
                 margin-top: -$small-gap;
                 margin-right: -$small-gap;
                 // width from 0 to 4rem with animation
-                width: 0rem;
-                border-radius: 0 1rem 1rem 0;
+                width: 0;
                 transition: 0.25s;
 
                 & svg {
@@ -151,7 +157,9 @@
 
 }
 
-
+.main__list, .main__title {
+    max-width: 600px;
+}
 
 .footer {
     @include footer;
